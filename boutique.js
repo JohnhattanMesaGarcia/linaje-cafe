@@ -2,7 +2,7 @@
    BOUTIQUE.JS — Order form logic, Supabase integration & n8n webhook
    ========================================================================= */
 
-const GOOGLE_SCRIPT_URL = 'https://script.google.com/macros/s/AKfycbzNSrRa5OSe8gmb4kWG4v-fIS036mH4TvU2JJrEPf4zhtaesPrVQcZxg43_Ohm9NRazLw/exec';
+const GOOGLE_SCRIPT_URL = 'https://script.google.com/macros/s/AKfycbyk-GiJN69yzQGAfC69AlSlY6ASq4lom9MXcqXreTu2Wg3Io0g7hI8HDSb99fDEUflHag/exec';
 
 /* =========================================================================
    HELPERS
@@ -245,8 +245,27 @@ document.addEventListener('DOMContentLoaded', () => {
             // Extra context fields (non-Supabase columns may be ignored by RLS)
             coffee_type: document.getElementById('coffee_type').value,
             grind_type:  document.getElementById('grind_type') ? document.getElementById('grind_type').value : null,
-            variety:     document.getElementById('variety').value
+            variety:     document.getElementById('variety').value,
+            size:        document.getElementById('size').value,
+            quantity:    parseInt(document.getElementById('quantity').value, 10),
+            delivery_point: document.getElementById('delivery_point').value
         };
+
+        // Calculate Price
+        let unitPrice = 0;
+        if (payload.size === '250gr') {
+            unitPrice = 34000;
+        } else if (payload.size === '500gr') {
+            unitPrice = 59000;
+        }
+        payload.total_price = unitPrice * payload.quantity;
+        
+        // Format price as COP
+        const formatter = new Intl.NumberFormat('es-CO', {
+            style: 'currency',
+            currency: 'COP',
+            minimumFractionDigits: 0
+        });
 
         // Disable submit button
         const btn = document.getElementById('submit-btn');
@@ -267,10 +286,14 @@ document.addEventListener('DOMContentLoaded', () => {
         let message = `¡Hola Linaje! Quiero hacer un pedido.\n\n`;
         message += `☕ *Detalles del Café:*\n`;
         message += `- Variedad: ${payload.variety}\n`;
+        message += `- Presentación: ${payload.size}\n`;
         message += `- Formato: ${payload.coffee_type}\n`;
         if (payload.grind_type) {
             message += `- Molienda: ${payload.grind_type}\n`;
         }
+        message += `- Cantidad: ${payload.quantity} bolsa(s)\n`;
+        
+        message += `\n💰 *Total Estimado (Sin Envío):* ${formatter.format(payload.total_price)}\n`;
         
         message += `\n👤 *Mis Datos:*\n`;
         message += `- Nombre: ${payload.name}\n`;
@@ -280,6 +303,7 @@ document.addEventListener('DOMContentLoaded', () => {
         }
 
         message += `\n📍 *Dirección de Entrega:*\n`;
+        message += `- Tipo de Envío: ${payload.delivery_point}\n`;
         message += `- Departamento: ${payload.department}\n`;
         message += `- Ciudad: ${payload.city}\n`;
         message += `- Dirección: ${payload.address}\n`;
