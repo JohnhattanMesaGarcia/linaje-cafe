@@ -1,0 +1,268 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Boutique | Linaje Café</title>
+    <meta name="description" content="Ordena tu café Linaje de especialidad. Selecciona tu variedad, indica tu dirección y uno de nuestros asesores se contactará contigo.">
+    <!-- Design System CSS -->
+    <link rel="stylesheet" href="styles.css">
+</head>
+
+<body>
+
+    <!-- Background Particles -->
+    <div class="particles-container" id="particles">
+        <!-- Partículas inyectadas vía JS -->
+    </div>
+
+    <!-- Navegación Sticky (same as landing) -->
+    <nav class="navbar" id="navbar">
+        <div class="container nav-container">
+            <a href="index.html" class="nav-logo">
+                <img src="images/logo.png" alt="Linaje Logo" class="logo-img">
+            </a>
+
+            <ul class="nav-links" id="nav-links">
+                <li><a href="index.html#experiencia" class="nav-link">Nuestra Experiencia</a></li>
+                <li><a href="index.html#proceso" class="nav-link">El Proceso</a></li>
+                <li><a href="index.html#historia" class="nav-link">Historia</a></li>
+                <li><a href="index.html" class="btn btn-outline" style="padding: 10px 24px;">Volver</a></li>
+            </ul>
+
+            <div class="mobile-menu-toggle" id="mobile-menu-toggle">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Boutique Hero + Form Section -->
+    <section class="boutique-page-section">
+        <div class="container">
+            <div class="boutique-page-header">
+                <div class="hero-label" style="margin: 0 auto;">
+                    <span>✧ Boutique Linaje</span>
+                </div>
+                <h1>Ordena tu <span class="text-gradient">Café Linaje</span></h1>
+                <p class="large">Selecciona tu preferencia y completa tus datos. Un asesor se pondrá en contacto contigo para coordinar tu pedido.</p>
+            </div>
+
+            <!-- Order Form -->
+            <form id="order-form" class="order-form glass-card" novalidate>
+
+                <!-- Row 1: Tipo de café + Variedad -->
+                <div class="form-row">
+                    <div class="form-group">
+                        <label for="coffee_type" class="form-label">Tipo de café <span class="required-star">*</span></label>
+                        <div class="select-wrapper">
+                            <select id="coffee_type" name="coffee_type" class="form-control" required>
+                                <option value="" disabled selected>Selecciona el tipo</option>
+                                <option value="Molido">Molido</option>
+                                <option value="En Grano">En Grano</option>
+                            </select>
+                        </div>
+                        <span class="field-error" id="coffee_type-error">Por favor selecciona el tipo de café.</span>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="variety" class="form-label">Variedad <span class="required-star">*</span></label>
+                        <div class="select-wrapper">
+                            <select id="variety" name="variety" class="form-control" required>
+                                <option value="" disabled selected>Selecciona la variedad</option>
+                                <option value="Castillo">Castillo</option>
+                            </select>
+                        </div>
+                        <span class="field-error" id="variety-error">Por favor selecciona la variedad.</span>
+                    </div>
+                </div>
+
+                <!-- Row 1.5: Tipo de molienda (Dynamic) -->
+                <div class="form-row" id="grind-row" style="display: none;">
+                    <div class="form-group" style="grid-column: 1 / -1;">
+                        <label for="grind_type" class="form-label">Tipo de molienda <span class="required-star">*</span></label>
+                        <div class="select-wrapper">
+                            <select id="grind_type" name="grind_type" class="form-control">
+                                <option value="" disabled selected>Selecciona la molienda</option>
+                                <option value="Fina">Fina</option>
+                                <option value="Media">Media</option>
+                                <option value="Gruesa">Gruesa</option>
+                            </select>
+                        </div>
+                        <span class="field-error" id="grind_type-error">Por favor selecciona el tipo de molienda.</span>
+                    </div>
+                </div>
+
+                <!-- Row 2: Nombre + Teléfono -->
+                <div class="form-row">
+                    <div class="form-group">
+                        <label for="name" class="form-label">Nombre <span class="required-star">*</span></label>
+                        <input type="text" id="name" name="name" class="form-control" placeholder="Tu nombre completo" required>
+                        <span class="field-error" id="name-error">El nombre es obligatorio.</span>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="phone" class="form-label">Teléfono <span class="required-star">*</span></label>
+                        <input type="tel" id="phone" name="phone" class="form-control" placeholder="Ej: 300 123 4567" required>
+                        <span class="field-error" id="phone-error">El teléfono es obligatorio.</span>
+                    </div>
+                </div>
+
+                <!-- Row 3: Correo + Departamento -->
+                <div class="form-row">
+                    <div class="form-group">
+                        <label for="email" class="form-label">Correo <span class="optional-tag">Opcional</span></label>
+                        <input type="email" id="email" name="email" class="form-control" placeholder="Tu correo electrónico">
+                        <span class="field-error" id="email-error">Ingresa un correo válido.</span>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="department" class="form-label">Departamento <span class="required-star">*</span></label>
+                        <div class="select-wrapper">
+                            <select id="department" name="department" class="form-control" required>
+                                <option value="" disabled selected>Selecciona un departamento</option>
+                                <!-- Departments will be populated by JS -->
+                            </select>
+                        </div>
+                        <span class="field-error" id="department-error">El departamento es obligatorio.</span>
+                    </div>
+                </div>
+
+                <!-- Row 4: Ciudad + Dirección -->
+                <div class="form-row">
+                    <div class="form-group">
+                        <label for="city" class="form-label">Ciudad <span class="required-star">*</span></label>
+                        <input type="text" id="city" name="city" class="form-control"
+                               placeholder="Selecciona primero tu departamento"
+                               list="cities-list" autocomplete="off" required disabled>
+                        <datalist id="cities-list"></datalist>
+                        <span class="field-error" id="city-error">La ciudad es obligatoria.</span>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="address" class="form-label">Dirección <span class="required-star">*</span></label>
+                        <input type="text" id="address" name="address" class="form-control" placeholder="Dirección de entrega" required>
+                        <span class="field-error" id="address-error">La dirección es obligatoria.</span>
+                    </div>
+                </div>
+
+                <!-- Row 5: Punto de referencia -->
+                <div class="form-row">
+                    <div class="form-group" style="grid-column: 1 / -1;">
+                        <label for="benchmark" class="form-label">Punto de referencia <span class="optional-tag">Opcional</span></label>
+                        <input type="text" id="benchmark" name="benchmark" class="form-control" placeholder="Ej: Frente al parque central">
+                    </div>
+                </div>
+
+                <!-- Submit -->
+                <div class="form-submit-row">
+                    <button type="submit" class="btn btn-primary cta-pulse-btn" id="submit-btn">
+                        <span id="submit-text">Ordenar Ahora</span>
+                        <span id="submit-spinner" class="spinner" style="display:none;"></span>
+                    </button>
+                    <p class="form-disclaimer">* Campos obligatorios. Tu información es privada y segura.</p>
+                </div>
+
+            </form>
+        </div>
+    </section>
+
+    <!-- Footer (same as landing) -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-brand">
+                    <a href="index.html" class="footer-logo">
+                        <img src="images/logo.png" alt="Linaje Logo" class="logo-img">
+                    </a>
+                    <p>Elevando el ritual del café a una forma de arte. Solo los mejores granos para los paladares más exigentes.</p>
+                </div>
+                <div class="footer-col">
+                    <h4>Boutique</h4>
+                    <div class="footer-links">
+                        <a href="#">Café en Grano</a>
+                        <a href="#">Equipamiento</a>
+                        <a href="#">Suscripción</a>
+                        <a href="#">Regalos Exclusivos</a>
+                    </div>
+                </div>
+                <div class="footer-col">
+                    <h4>Linaje</h4>
+                    <div class="footer-links">
+                        <a href="#">Nuestra Historia</a>
+                        <a href="#">Fincas Partners</a>
+                        <a href="#">Maestros Tostadores</a>
+                        <a href="#">Contacto</a>
+                    </div>
+                </div>
+                <div class="footer-col">
+                    <h4>Legal</h4>
+                    <div class="footer-links">
+                        <a href="#">Políticas de Envío</a>
+                        <a href="#">Privacidad</a>
+                        <a href="#">Condiciones</a>
+                        <a href="#">Soporte</a>
+                    </div>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <span>&copy; 2026 Linaje Coffee Roasters. Todos los derechos reservados.</span>
+                <span>Medellín-Cali, Colombia</span>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Popup 1: Casi listo -->
+    <div class="popup-overlay" id="popup-almost" aria-hidden="true">
+        <div class="popup-card glass-card">
+            <h3 class="popup-title">Cada vez estas mas cerca de probar nuestro café <span class="text-gradient">Linaje</span>.</h3>
+            <p class="popup-subtitle">Estamos procesando tu pedido…</p>
+            <!-- Spinning bean + loading bar -->
+            <div class="bean-spinner">☕</div>
+            <div class="popup-timer-bar-container">
+                <div class="popup-timer-bar">
+                    <div class="popup-timer-fill" id="timer-fill-1"></div>
+                </div>
+            </div>
+            <span class="popup-countdown" id="countdown-1">10</span>
+        </div>
+    </div>
+
+    <!-- Popup 2: En camino -->
+    <div class="popup-overlay" id="popup-sent" aria-hidden="true">
+        <div class="popup-card glass-card">
+            <h3 class="popup-title">Tu compra esta en proceso.</h3>
+            <p class="popup-subtitle">Uno de nuestros Asesores se contactará contigo.</p>
+            <!-- Coffee cup animation -->
+            <div class="coffee-scene">
+                <div class="coffee-steam">
+                    <span></span><span></span><span></span>
+                </div>
+                <div class="coffee-cup">
+                    <div class="coffee-liquid" id="coffee-fill-2"></div>
+                    <div class="coffee-cup-handle"></div>
+                </div>
+                <div class="coffee-saucer"></div>
+            </div>
+            <span class="popup-countdown" id="countdown-2">10</span>
+        </div>
+    </div>
+
+    <!-- Volver button (shown after popup 2 closes) -->
+    <div class="volver-overlay" id="volver-overlay" style="display:none;">
+        <div class="volver-card glass-card">
+            <div class="popup-icon">✧</div>
+            <h3>¡Gracias por tu pedido!</h3>
+            <p>Pronto estaremos en contacto contigo.</p>
+            <a href="index.html" class="btn btn-primary" style="margin-top: 16px; border-radius: 100px;">Volver al inicio</a>
+        </div>
+    </div>
+
+    <!-- JS Scripts -->
+    <script src="script.js"></script>
+    <script src="boutique.js"></script>
+</body>
+
+</html>

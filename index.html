@@ -1,0 +1,322 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Linaje | La excelencia del café en cada taza</title>
+    <meta name="description"
+        content="Linaje: Café de especialidad. Seleccionamos, tostamos y preparamos granos con profunda reverencia por la tradición, brindando una experiencia sensorial premium.">
+    <!-- Design System CSS -->
+    <link rel="stylesheet" href="styles.css">
+</head>
+
+<body>
+
+    <!-- Background Particles -->
+    <div class="particles-container" id="particles">
+        <!-- Partículas inyectadas vía JS -->
+    </div>
+
+    <!-- Navegación Sticky -->
+    <nav class="navbar" id="navbar">
+        <div class="container nav-container">
+            <a href="#" class="nav-logo">
+                <img src="images/logo.png" alt="Linaje Logo" class="logo-img">
+            </a>
+
+            <ul class="nav-links" id="nav-links">
+                <li><a href="#experiencia" class="nav-link">Nuestra Experiencia</a></li>
+                <li><a href="#proceso" class="nav-link">El Proceso</a></li>
+                <li><a href="#historia" class="nav-link">Historia</a></li>
+                <li><a href="#boutique" class="btn btn-primary" style="padding: 10px 24px;">Boutique</a></li>
+            </ul>
+
+            <div class="mobile-menu-toggle" id="mobile-menu-toggle">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="hero" id="home">
+        <div class="hero-bg"></div>
+        <div class="container hero-container">
+            <div class="hero-content">
+                <div class="hero-label">
+                    <span>✧ Especialidad Pura</span>
+                </div>
+                <h1 class="hero-title">El café en su <span class="text-gradient">máxima expresión</span></h1>
+                <p class="hero-subtitle large">Seleccionamos, tostamos y preparamos granos excepcionales con profunda
+                    reverencia por la tradición, brindando una experiencia digna de nuestro linaje.</p>
+                <div class="hero-actions">
+                    <a href="#boutique" class="btn btn-primary cta-pulse-btn">Adquirir Colección</a>
+                    <a href="#proceso" class="btn btn-outline">Descubrir el Origen</a>
+                </div>
+            </div>
+
+            <div class="hero-visual-wrapper">
+                <img src="images/hero_visual.png" alt="Granos de café premium" class="hero-visual glow-primary">
+            </div>
+        </div>
+    </section>
+
+    <!-- Social Proof / Recognitions -->
+    <section class="social-proof">
+        <div class="container social-proof-content">
+            <h4 class="social-proof-text">Reconocidos por los verdaderos conocedores</h4>
+            <div class="logos-grid">
+                <span>VOGUE</span>
+                <span>GASTRONOMY</span>
+                <span>BARISTA MAG</span>
+                <span>FORBES</span>
+                <span>ROASTERS</span>
+            </div>
+        </div>
+    </section>
+
+    <!-- Services / Process (Flip Cards) -->
+    <section id="proceso">
+        <div class="container">
+            <div class="services-header">
+                <h2>El Ritual <span class="text-gradient">del Linaje</span></h2>
+                <p class="large">Un cuidadoso proceso de 4 etapas que garantiza la perfección en tu paladar, desde la
+                    tierra hasta tu taza.</p>
+            </div>
+
+            <div class="services-grid" id="services-grid">
+
+                <!-- Card 1 -->
+                <div class="service-card-flip">
+                    <div class="service-card-inner">
+                        <div class="service-card-front">
+                            <img src="images/service_1.png" alt="Cosecha y Origen" class="service-image">
+                            <div class="service-overlay">
+                                <h3 class="service-title-front">Origen Selecto</h3>
+                            </div>
+                        </div>
+                        <div class="service-card-back glass-card">
+                            <h3 class="service-title-back">Origen Selecto</h3>
+                            <p class="service-description">Trato directo con fincas meticulosamente seleccionadas a más
+                                de 1600m de altura, asegurando comercio justo y la más alta puntuación.</p>
+                            <div class="service-features">
+                                <span class="feature-tag">100% Arábica</span>
+                                <span class="feature-tag">Single Origin</span>
+                                <span class="feature-tag">Altura</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Card 2 -->
+                <div class="service-card-flip">
+                    <div class="service-card-inner">
+                        <div class="service-card-front">
+                            <img src="images/service_2.png" alt="Tueste Maestro" class="service-image">
+                            <div class="service-overlay">
+                                <h3 class="service-title-front">Tueste Maestro</h3>
+                            </div>
+                        </div>
+                        <div class="service-card-back glass-card">
+                            <h3 class="service-title-back">Tueste Maestro</h3>
+                            <p class="service-description">Nuestros maestros tostadores moldean los perfiles térmicos
+                                con precisión para exaltar las notas ocultas de cada lote.</p>
+                            <div class="service-features">
+                                <span class="feature-tag">Tueste Manual</span>
+                                <span class="feature-tag">Omni-Roast</span>
+                                <span class="feature-tag">Fresco</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Card 3 -->
+                <div class="service-card-flip">
+                    <div class="service-card-inner">
+                        <div class="service-card-front">
+                            <img src="images/service_3.png" alt="Arte Barista" class="service-image">
+                            <div class="service-overlay">
+                                <h3 class="service-title-front">Extracción Perfecta</h3>
+                            </div>
+                        </div>
+                        <div class="service-card-back glass-card">
+                            <h3 class="service-title-back">Extracción Perfecta</h3>
+                            <p class="service-description">Una alquimia controlada a través de las mejores máquinas del
+                                mundo, respetando temperaturas, ratios y técnica.</p>
+                            <div class="service-features">
+                                <span class="feature-tag">Espresso</span>
+                                <span class="feature-tag">V60</span>
+                                <span class="feature-tag">Cold Brew</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Card 4 -->
+                <div class="service-card-flip">
+                    <div class="service-card-inner">
+                        <div class="service-card-front">
+                            <img src="images/service_4.png" alt="Boutique" class="service-image">
+                            <div class="service-overlay">
+                                <h3 class="service-title-front">Experiencia Linaje</h3>
+                            </div>
+                        </div>
+                        <div class="service-card-back glass-card">
+                            <h3 class="service-title-back">Experiencia Linaje</h3>
+                            <p class="service-description">Un entorno exclusivo, oscuro y lujoso, creado para
+                                desconectar y saborear la autenticidad del café rodeado de arte.</p>
+                            <div class="service-features">
+                                <span class="feature-tag">Boutique</span>
+                                <span class="feature-tag">Eventos</span>
+                                <span class="feature-tag">Membresía</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- NEW SECTION: BOUTIQUE SHOWCASE -->
+    <section id="boutique-showcase" class="boutique-section">
+        <div class="container">
+            <div class="boutique-header">
+                <div class="label" style="text-align: center;">Nuestra Colección</div>
+                <h2 style="text-align: center;">El Origen en tus <span class="text-gradient">Manos</span></h2>
+            </div>
+
+            <div class="products-showcase">
+                <!-- PRODUCT 1: BLACK BAG -->
+                <div class="product-item">
+                    <div class="product-image-container">
+                        <img src="images/product_black.png" alt="Café Linaje Black Edition" class="product-bag">
+                        <div class="product-glow black-glow"></div>
+                        <div class="glass-pedestal"></div>
+                    </div>
+                    <div class="product-info">
+                        <h3>Black Edition</h3>
+                        <p class="product-note">Origen Único · 1800m</p>
+                        <p class="product-desc">Un perfil denso con notas de cacao oscuro, avellanas tostadas y un cuerpo cremoso inigualable. Perfecto para métodos de inmersión y espresso.</p>
+                        <a href="#" class="btn btn-outline" style="border-radius: 100px; margin-top: 16px;">Ver Detalles</a>
+                    </div>
+                </div>
+
+                <!-- PRODUCT 2: RED BAG -->
+                <div class="product-item">
+                    <div class="product-image-container">
+                        <img src="images/product_red.png" alt="Café Linaje Red Edition" class="product-bag">
+                        <div class="product-glow red-glow"></div>
+                        <div class="glass-pedestal"></div>
+                    </div>
+                    <div class="product-info">
+                        <h3>Red Edition</h3>
+                        <p class="product-note">Blend Selecto · 1650m</p>
+                        <p class="product-desc">Brillante y sedoso, destacando una acidez málica elegante con notas ocultas de frutos rojos maduros. Ideal para filtrados finos y métodos Pour-Over.</p>
+                        <!-- Using inline styles here to ensure gold stays as requested (botones en negro, excepto este por contraste o lo haremos todo negro) -->
+                        <a href="#" class="btn btn-primary" style="border-radius: 100px; margin-top: 16px;">Adquirir Edición Roja</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Metrics Section -->
+    <section class="dashboard-section" id="historia">
+        <div class="container dashboard-container">
+            <div class="dashboard-header">
+                <h2>El peso de <span class="text-gradient">nuestra herencia</span></h2>
+                <p class="large">Números que respaldan nuestra obsesión absoluta por la calidad premium.</p>
+            </div>
+
+            <div class="glass-card" style="width: 100%;">
+                <div class="dashboard-stats">
+                    <div class="stat-item">
+                        <span class="stat-value text-gradient" data-target="92">0</span>
+                        <span class="stat-label">Puntos Q-Grader Mínimos</span>
+                    </div>
+                    <div class="stat-item">
+                        <span class="stat-value text-gradient" data-target="15">0</span>
+                        <span class="stat-label">Micro-Lotes Exclusivos</span>
+                    </div>
+                    <div class="stat-item">
+                        <span class="stat-value text-gradient" data-target="48">0</span>
+                        <span class="stat-label">H. Descanso Post-Tueste</span>
+                    </div>
+                    <div class="stat-item">
+                        <span class="stat-value text-gradient" data-target="100">0</span>
+                        <span class="stat-label">% Satisfacción Pura</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Final CTA -->
+    <section class="cta-section" id="boutique">
+        <div class="container">
+            <div class="cta-container">
+                <div class="cta-bg"></div>
+                <div class="cta-content">
+                    <h2>Despierta tus <span class="text-gradient">sentidos</span></h2>
+                    <p class="large">Adéntrate en el linaje del café. Reserva una cata privada o adquiere nuestra
+                        colección dorada de temporada de edición limitada.</p>
+                    <a href="boutique.html" class="btn btn-primary cta-pulse-btn">Acceder a la Boutique</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-brand">
+                    <a href="#" class="footer-logo">
+                        <img src="images/logo.png" alt="Linaje Logo" class="logo-img">
+                    </a>
+                    <p>Elevando el ritual del café a una forma de arte. Solo los mejores granos para los paladares más
+                        exigentes.</p>
+                </div>
+                <div class="footer-col">
+                    <h4>Boutique</h4>
+                    <div class="footer-links">
+                        <a href="#">Café en Grano</a>
+                        <a href="#">Equipamiento</a>
+                        <a href="#">Suscripción</a>
+                        <a href="#">Regalos Exclusivos</a>
+                    </div>
+                </div>
+                <div class="footer-col">
+                    <h4>Linaje</h4>
+                    <div class="footer-links">
+                        <a href="#">Nuestra Historia</a>
+                        <a href="#">Fincas Partners</a>
+                        <a href="#">Maestros Tostadores</a>
+                        <a href="#">Contacto</a>
+                    </div>
+                </div>
+                <div class="footer-col">
+                    <h4>Legal</h4>
+                    <div class="footer-links">
+                        <a href="#">Políticas de Envío</a>
+                        <a href="#">Privacidad</a>
+                        <a href="#">Condiciones</a>
+                        <a href="#">Soporte</a>
+                    </div>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <span>&copy; 2026 Linaje Coffee Roasters. Todos los derechos reservados.</span>
+                <span>Medellín-Cali, Colombia</span>
+            </div>
+        </div>
+    </footer>
+
+    <!-- JS Scripts -->
+    <script src="script.js"></script>
+</body>
+
+</html>
