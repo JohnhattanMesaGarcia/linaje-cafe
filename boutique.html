@@ -79,6 +79,27 @@
                     </div>
                 </div>
 
+                <!-- Row 1.2: Presentación y Cantidad -->
+                <div class="form-row">
+                    <div class="form-group">
+                        <label for="size" class="form-label">Presentación <span class="required-star">*</span></label>
+                        <div class="select-wrapper">
+                            <select id="size" name="size" class="form-control" required>
+                                <option value="" disabled selected>Selecciona el tamaño</option>
+                                <option value="250gr">Bolsa x 250 gr ($34.000 COP)</option>
+                                <option value="500gr">Bolsa x 500 gr ($59.000 COP)</option>
+                            </select>
+                        </div>
+                        <span class="field-error" id="size-error">Por favor selecciona la presentación.</span>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="quantity" class="form-label">¿Cuántas bolsas vas a llevar? <span class="required-star">*</span></label>
+                        <input type="number" id="quantity" name="quantity" class="form-control" min="1" value="1" required>
+                        <span class="field-error" id="quantity-error">Ingresa la cantidad.</span>
+                    </div>
+                </div>
+
                 <!-- Row 1.5: Tipo de molienda (Dynamic) -->
                 <div class="form-row" id="grind-row" style="display: none;">
                     <div class="form-group" style="grid-column: 1 / -1;">
@@ -148,11 +169,23 @@
                     </div>
                 </div>
 
-                <!-- Row 5: Punto de referencia -->
+                <!-- Row 5: Entrega Especial + Punto de referencia -->
                 <div class="form-row">
-                    <div class="form-group" style="grid-column: 1 / -1;">
+                    <div class="form-group">
+                        <label for="delivery_point" class="form-label">Tipo de Entrega <span class="required-star">*</span></label>
+                        <div class="select-wrapper">
+                            <select id="delivery_point" name="delivery_point" class="form-control" required>
+                                <option value="Envío a Domicilio Normal" selected>Envío a Domicilio Normal</option>
+                                <option value="Entrega en Oficina (Lunes)">Entrega en Oficina (Lunes)</option>
+                                <option value="Entrega en Empresa (Martes a Jueves)">Entrega en Oficina (Martes a Jueves)</option>
+                            </select>
+                        </div>
+                        <span class="field-error" id="delivery_point-error">Por favor selecciona un tipo de entrega.</span>
+                    </div>
+
+                    <div class="form-group">
                         <label for="benchmark" class="form-label">Punto de referencia <span class="optional-tag">Opcional</span></label>
-                        <input type="text" id="benchmark" name="benchmark" class="form-control" placeholder="Ej: Frente al parque central">
+                        <input type="text" id="benchmark" name="benchmark" class="form-control" placeholder="Ej: Frente al parque">
                     </div>
                 </div>
 
