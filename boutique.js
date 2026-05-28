@@ -2,7 +2,7 @@
    BOUTIQUE.JS — Order form logic, Supabase integration & n8n webhook
    ========================================================================= */
 
-const GOOGLE_SCRIPT_URL = 'https://script.google.com/macros/s/AKfycbz5_tO0SIyk_bfR71o62nd6ERiTJt3Jl-BTfIfrIOvaWP6OSefcZ3U3HHznYokQRp6wSA/exec';
+const GOOGLE_SCRIPT_URL = 'https://script.google.com/macros/s/AKfycbzNSrRa5OSe8gmb4kWG4v-fIS036mH4TvU2JJrEPf4zhtaesPrVQcZxg43_Ohm9NRazLw/exec';
 
 /* =========================================================================
    HELPERS
